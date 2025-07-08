@@ -36,21 +36,39 @@ PersonalAssistant.prototype.reportMood = function () {
 const myAssistant = new PersonalAssistant("SergeBot");
 
 // Greet the user
-console.log(`Hi! I'm ${myAssistant.name}, your personal assistant.`);
+console.log(`Good morning! I'm ${myAssistant.name}, your personal assistant.`);
 
-// Report mood before tasks
-myAssistant.mood = "focused";
+// Morning setup
+myAssistant.mood = "motivated";
 myAssistant.reportMood();
 
-// Add real tasks
+// Add real tasks for the day
 myAssistant.addTask("Finish CS81 Assignment 6B");
-myAssistant.addTask("Prepare dinner");
-myAssistant.addTask("Go for a 30-minute run");
+myAssistant.addTask("Reply to professor's email");
+myAssistant.addTask("Take a walk before lunch");
+myAssistant.addTask("Cook dinner");
+myAssistant.addTask("Review JavaScript constructors");
 
-// Complete some tasks
-myAssistant.completeTask();
-myAssistant.completeTask();
+// Midday check-in
+console.log("\nIt's noon! Let's check your progress...");
 
-// Update and report mood after progress
+myAssistant.completeTask(); // Finishing assignment
+myAssistant.completeTask(); // Replying to email
+
+myAssistant.mood = "productive";
+myAssistant.reportMood();
+
+// Add a new task in the afternoon
+myAssistant.addTask("Water the plants");
+
+// Evening wrap-up
+console.log("\nEvening check-in...");
+
+myAssistant.completeTask(); // Take a walk
+myAssistant.completeTask(); // Cook dinner
+
+// Final mood and task check
 myAssistant.mood = "accomplished";
 myAssistant.reportMood();
+
+console.log(`You have ${myAssistant.tasks.length} task(s) left: ${myAssistant.tasks.join(", ")}`);
