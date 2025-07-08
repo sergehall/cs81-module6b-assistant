@@ -29,3 +29,28 @@ PersonalAssistant.prototype.completeTask = function () {
 PersonalAssistant.prototype.reportMood = function () {
   console.log(`${this.name}'s current mood is: ${this.mood}`);
 };
+
+// --- Simulate a day with the assistant ---
+
+// Create an instance of the assistant
+const myAssistant = new PersonalAssistant("SergeBot");
+
+// Greet the user
+console.log(`Hi! I'm ${myAssistant.name}, your personal assistant.`);
+
+// Report mood before tasks
+myAssistant.mood = "focused";
+myAssistant.reportMood();
+
+// Add real tasks
+myAssistant.addTask("Finish CS81 Assignment 6B");
+myAssistant.addTask("Prepare dinner");
+myAssistant.addTask("Go for a 30-minute run");
+
+// Complete some tasks
+myAssistant.completeTask();
+myAssistant.completeTask();
+
+// Update and report mood after progress
+myAssistant.mood = "accomplished";
+myAssistant.reportMood();
